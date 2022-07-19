@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="413dp"
+        android:layout_height="316dp">
+
+        <ImageView
+            android:id="@+id/ivFoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="imagem da noticia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padrao"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="@dimen/margin_padrao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivFoto"
+            tools:text="São paulo perde pro corinthians em casa" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDescricao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_padrao"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="@dimen/margin_padrao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitulo"
+            tools:text="corinthians vence o são paulo em casa com show de gols, são paulo sai quebrando tudo pelo cominho na saida do estadio" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btAbrirLink"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/txt_abrir_link"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescricao" />
+
+        <ImageView
+            android:id="@+id/ivFavorito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="icone de favorito"
+            app:layout_constraintBottom_toBottomOf="@+id/btAbrirLink"
+            app:layout_constraintEnd_toStartOf="@+id/ivCompartilhar"
+            app:layout_constraintTop_toTopOf="@+id/btAbrirLink"
+
+            app:layout_constraintVertical_bias="0.458"
+            app:srcCompat="@drawable/ic_favorite" />
+
+        <ImageView
+            android:id="@+id/ivCompartilhar"
+            android:layout_width="35dp"
+            android:layout_height="26dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="icone de compartilhar"
+            app:layout_constraintBottom_toBottomOf="@+id/btAbrirLink"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btAbrirLink"
+            app:srcCompat="@drawable/ic_baseline_share_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
