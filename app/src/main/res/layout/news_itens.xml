@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="0dp">
+    android:layout_marginBottom="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="413dp"
-        android:layout_height="316dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/ivFoto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:background="#E91E63"
             android:contentDescription="imagem da noticia"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -32,7 +33,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivFoto"
-            tools:text="São paulo perde pro corinthians em casa" />
+            tools:text="São paulo perde para o corinthians em casa" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvDescricao"
@@ -51,8 +52,8 @@
             style="?attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="15dp"
             android:text="@string/txt_abrir_link"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -68,9 +69,12 @@
             app:layout_constraintBottom_toBottomOf="@+id/btAbrirLink"
             app:layout_constraintEnd_toStartOf="@+id/ivCompartilhar"
             app:layout_constraintTop_toTopOf="@+id/btAbrirLink"
-
             app:layout_constraintVertical_bias="0.458"
-            app:srcCompat="@drawable/ic_favorite" />
+            app:srcCompat="@drawable/ic_favorite"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            android:background="?android:selectableItemBackgroundBorderless"/>
 
         <ImageView
             android:id="@+id/ivCompartilhar"
@@ -81,7 +85,11 @@
             app:layout_constraintBottom_toBottomOf="@+id/btAbrirLink"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btAbrirLink"
-            app:srcCompat="@drawable/ic_baseline_share_24" />
+            app:srcCompat="@drawable/ic_baseline_share_24"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            android:background="?android:selectableItemBackgroundBorderless"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
