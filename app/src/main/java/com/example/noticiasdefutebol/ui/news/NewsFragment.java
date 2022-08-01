@@ -28,7 +28,7 @@ public class NewsFragment extends Fragment {
         View root = binding.getRoot();
 
         binding.recyclerViewNews.setLayoutManager(new LinearLayoutManager(getContext()));
-        newsViewModel.geNews().observe(getViewLifecycleOwner(), news -> {
+        newsViewModel.getNews().observe(getViewLifecycleOwner(), news -> {
         binding.recyclerViewNews.setAdapter(new NewsAdapter(news));
         });
         return root;

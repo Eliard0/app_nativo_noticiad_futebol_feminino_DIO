@@ -1,27 +1,40 @@
 package com.example.noticiasdefutebol.dominio;
 
 public class News {
-    private String titulo;
-    private String descricao;
+    private String title;
+    private String description;
+    private String image;
+    private String link;
 
-    public News(String titulo, String descricao) {
-        this.titulo = titulo;
-        this.descricao = descricao;
+    public String getTitle() {
+        return title;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public String getDescription() {
+        return description;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }
