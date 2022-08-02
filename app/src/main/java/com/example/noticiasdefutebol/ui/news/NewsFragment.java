@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.room.Room;
 
+import com.example.noticiasdefutebol.MainActivity;
 import com.example.noticiasdefutebol.data.AppDatabase;
 import com.example.noticiasdefutebol.databinding.FragmentNewsBinding;
 import com.example.noticiasdefutebol.ui.adapter.NewsAdapter;
@@ -19,7 +20,6 @@ import com.example.noticiasdefutebol.ui.adapter.NewsAdapter;
 public class NewsFragment extends Fragment {
 
     private FragmentNewsBinding binding;
-    private AppDatabase bd;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -29,15 +29,29 @@ public class NewsFragment extends Fragment {
         binding = FragmentNewsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        bd = Room.databaseBuilder(getContext(), AppDatabase.class, "database-noticias")
-                .allowMainThreadQueries()
-                .build();
-
         binding.recyclerViewNews.setLayoutManager(new LinearLayoutManager(getContext()));
         newsViewModel.getNews().observe(getViewLifecycleOwner(), news -> {
             binding.recyclerViewNews.setAdapter(new NewsAdapter(news, favoritedNews -> {
-                    bd.newsDao().insert(favoritedNews);
+                MainActivity activity = (MainActivity) getActivity();
+                if (activity != null) {
+                    activity.getDb().newsDao().save(favoritedNews);
+                }
             }));
+        });
+
+        newsViewModel.getState().observe(getViewLifecycleOwner(),state->{
+            switch (state){
+                case DOING:
+                    //TODO: incluir swiperRefre
+                    break;
+                case DONE:
+                    //TODO: incluir swiperRefre
+                    break;
+                case ERROR:
+                    //TODO: incluir swiperRefre
+                    //TODO: incluir error
+                    break;
+            }
         });
         return root;
     }
@@ -47,4 +61,6 @@ public class NewsFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
 }

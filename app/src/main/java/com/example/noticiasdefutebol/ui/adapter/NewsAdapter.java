@@ -1,5 +1,8 @@
 package com.example.noticiasdefutebol.ui.adapter;
 
+import static java.security.AccessController.getContext;
+
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -8,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.noticiasdefutebol.R;
 import com.example.noticiasdefutebol.databinding.NewsItensBinding;
 import com.example.noticiasdefutebol.dominio.News;
 import com.squareup.picasso.Picasso;
@@ -34,6 +38,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final Context context = holder.itemView.getContext();
+
         News news = this.news.get(position);
         holder.binding.tvTitulo.setText(news.title);
         holder.binding.tvDescricao.setText(news.description);
@@ -41,21 +47,22 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.binding.btAbrirLink.setOnClickListener(view -> {
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(news.link));
-            holder.itemView.getContext().startActivity(i);
+            context.startActivity(i);
         });
         holder.binding.ivCompartilhar.setOnClickListener(view -> {
             Intent intent2 = new Intent();
             intent2.setAction(Intent.ACTION_SEND);
             intent2.setType("text/plain");
             intent2.putExtra(Intent.EXTRA_TEXT, news.link);
-            holder.itemView.getContext().startActivity(Intent.createChooser(intent2, "shared"));
+            context.startActivity(Intent.createChooser(intent2, "shared"));
         });
         holder.binding.ivFavorito.setOnClickListener(view -> {
             news.favorite = !news.favorite;
             this.favoriteListener.click(news);
             notifyItemChanged(position);
         });
-
+        int favoriteColor = news.favorite ? R.color.purple_200 : R.color.teal_700;
+        holder.binding.ivFavorito.setColorFilter(context.getResources().getColor(favoriteColor));
     }
 
     @Override
