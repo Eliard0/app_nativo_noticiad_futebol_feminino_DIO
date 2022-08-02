@@ -1,27 +1,15 @@
 package com.example.noticiasdefutebol.dominio;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class News {
-    private String titulo;
-    private String descricao;
-
-    public News(String titulo, String descricao) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    @PrimaryKey
+    public int id;
+    public String title;
+    public String description;
+    public String image;
+    public String link;
+    public boolean favorite;
 }
