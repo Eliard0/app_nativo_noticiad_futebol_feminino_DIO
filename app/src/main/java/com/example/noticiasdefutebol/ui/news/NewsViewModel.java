@@ -1,13 +1,10 @@
 package com.example.noticiasdefutebol.ui.news;
 
-import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.room.Room;
 
-import com.example.noticiasdefutebol.data.AppDatabase;
 import com.example.noticiasdefutebol.dominio.News;
 import com.example.noticiasdefutebol.dominio.SoccerNewsApi;
 
@@ -30,7 +27,7 @@ public class NewsViewModel extends ViewModel {
 
     public NewsViewModel() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://digitalinnovationone.github.io/soccer-news-api/")
+                .baseUrl("https://eliard0.github.io/futebol_feminino_api_dio/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
